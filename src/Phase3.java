@@ -113,9 +113,9 @@ class Phase3{
 		// to sink*/
 		while (bfs(rGraph, s, t, parent)) {
 			ArrayList<Integer> AguPath = new ArrayList<Integer>();
-			// Find minimum residual capacity of the edhes
+			/** Find minimum residual capacity of the edhes
 			// along the path filled by BFS. Or we can say
-			// find the maximum flow through the path found.
+			// find the maximum flow through the path found.**/
 			int path_flow = Integer.MAX_VALUE;		
 			for (v = t; v != s; v = parent[v]) {
 				AguPath.add(v);
@@ -126,8 +126,8 @@ class Phase3{
 			AguPath.add(s);
 			Collections.reverse(AguPath);
 		
-			// update residual capacities of the edges and
-			// reverse edges along the path
+			/** update residual capacities of the edges and
+			// reverse edges along the path*/
 			Capcity=0;
 			for (v = t; v != s; v = parent[v]) {
 				u = parent[v];
@@ -143,7 +143,7 @@ class Phase3{
 			if (i < AguPath.size()-1)
 				System.out.print("->"  );
 			}
-			// Add path flow to overall flow
+			/** Add path flow to overall flow**/
 			max_flow += path_flow;
 			System.out.println(" Capacity :"+ path_flow+" \nUpdate flow "+max_flow );
 		
@@ -151,14 +151,14 @@ class Phase3{
 		
 
 	
-	//we now maximum possible flow == Minimum cut 
+	/**we now maximum possible flow == Minimum cut */
 	min=max_flow;
 	System.out.println("-----------------------------------------------");
 	System.out.println("********The maximum possible flow is :"
 			+ max_flow+" ********");
 	System.out.println("The min cut is : "+ min);
-	   // Print all edges that are from a reachable vertex to
-    // non-reachable vertex in the original graph   
+	   /** Print all edges that are from a reachable vertex to
+    // non-reachable vertex in the original graph   ***/
 	System.out.println("The minimum cut edges : ");
 for(int i = 0 ; i< visited.length;i++) {
 	for (int j = 0 ; j< visited.length;j++) {
